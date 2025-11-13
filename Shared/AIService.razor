@@ -1,0 +1,15 @@
+<h3>Ask my AI Assistant</h3>
+<input @bind="userInput" placeholder="Type your question..." />
+<button @onclick="SendToAI">Ask</button>
+
+<p>@aiResponse</p>
+
+@code {
+    private string userInput = "";
+    private string aiResponse = "";
+
+    async Task SendToAI()
+    {
+        aiResponse = await AIService.AskAIAsync(userInput);
+    }
+}
